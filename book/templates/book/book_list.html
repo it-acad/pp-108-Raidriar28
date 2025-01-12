@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book List</title>
+</head>
+<body>
+    <h1>List of Books</h1>
+    <a href="{% url 'book:create_book' %}">Add Book</a>
+    <ul>
+        {% for book in books %}
+        <li>
+            {{ book.name }} - {{ book.description }}
+            <a href="{% url 'book:book_detail' book.id %}">View</a>
+            <a href="{% url 'book:update_book' book.id %}">Edit</a>
+            <a href="{% url 'book:delete_book' book.id %}">Delete</a>
+            <a href="{% url 'book:book_list' %}">Back to List</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

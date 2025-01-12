@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Detail</title>
+</head>
+<body>
+    <h1>User Detail</h1>
+    <p>First Name: {{ user.first_name }}</p>
+    <p>Last Name: {{ user.last_name }}</p>
+    <p>Middle Name: {{ user.middle_name }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Role: {{ user.get_role_name }}</p>
+    <a href="{% url 'user_list' %}">Back to List</a>
+</body>
+</html>

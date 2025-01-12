@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Author Details</title>
+</head>
+<body>
+    <h1>Author Details</h1>
+    <p>Name: {{ author.name }}</p>
+    <p>Surname: {{ author.surname }}</p>
+    <p>Patronymic: {{ author.patronymic }}</p>
+    <a href="{% url 'author:update_author' author.id %}">Edit</a>
+    <a href="{% url 'author:author_list' %}">Back to List</a>
+</body>
+</html>

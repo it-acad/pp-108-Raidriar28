@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Author List</title>
+</head>
+<body>
+    <h1>Author List</h1>
+    <ul>
+        {% for author in authors %}
+        <li>
+            <p>Name: {{ author.name }}</p>
+            <p>Surname: {{ author.surname }}</p>
+            <p>Patronymic: {{ author.patronymic }}</p>
+            <a href="{% url 'author:update_author' author.id %}">Edit</a>
+            <a href="{% url 'author:author_detail' author.id %}">View Details</a>
+            <a href="{% url 'author:delete_author' author.id %}" onclick="return confirm('Are you sure?');">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'author:create_author' %}">Add New Author</a>
+</body>
+</html>

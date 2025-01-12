@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order List</title>
+</head>
+<body>
+    <h1>List of Orders</h1>
+    <a href="{% url 'create_order' %}">Create Order</a>
+    <ul>
+        {% for order in orders %}
+        <li>
+            Order ID: {{ order.id }}, Book: {{ order.book.name }}, User: {{ order.user.username }},
+            Created At: {{ order.created_at }}
+            <a href="{% url 'order_detail' order.id %}">View</a>
+            {% if not order.end_at %}
+            <a href="{% url 'close_order' order.id %}">Close</a>
+            {% endif %}
+            <a href="{% url 'delete_order' order.id %}">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
